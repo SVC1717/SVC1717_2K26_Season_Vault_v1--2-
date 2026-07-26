@@ -1,133 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SVC1717 2K26 Season Vault</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<section id="cover" class="cover">
-  <div class="cover-card">
-    <div class="small">SVC1717</div>
-    <h1>2K26 SEASON VAULT</h1>
-    <p>“I Compete Because I Belong.”</p>
-    <button id="enterBtn">ENTER THE VAULT</button>
-    <div class="tag">EVERY BUILD • EVERY BADGE • EVERY BUCKET</div>
-  </div>
-</section>
+SVC1717 2K26 Season Vault v1
 
-<div id="app" class="app hidden">
-  <aside>
-    <h2>SVC1717</h2>
-    <button class="nav active" data-page="home">🏠 Home</button>
-    <button class="nav" data-page="builds">🏀 My Builds</button>
-    <button class="nav" data-page="jumpshots">🎯 Jump Shots</button>
-    <button class="nav" data-page="animations">🎮 Animations</button>
-    <button class="nav" data-page="where">👥 Where We Met</button>
-    <button class="nav" data-page="crew">👑 My Crew</button>
-  </aside>
+Open index.html to start.
 
-  <main>
-    <header>
-      <div>
-        <div class="small">COLLECTOR'S EDITION</div>
-        <h2 id="title">Home</h2>
-      </div>
-      <button id="quickAdd">+ Add Build</button>
-    </header>
+Working now:
+- Cover with official slogan
+- Home dashboard
+- Add, edit, view, and delete builds
+- One screenshot per build
+- Jump shot information
+- Cap breaker count and version
+- Separate stats for every build:
+  FG%, 3PT%, FT%, PPG, APG, RPG, SPG, BPG,
+  wins, losses, win percentage, best game, and rating
 
-    <section id="homePage" class="page active">
-      <div class="hero">
-        <div>
-          <div class="small">WELCOME BACK</div>
-          <h3>Your season. Your builds. Your vault.</h3>
-          <p>Add your builds now, then update stats, jump shots, animations, cap breakers, and notes as the season changes.</p>
-          <button id="heroAdd">ADD YOUR FIRST BUILD</button>
-        </div>
-        <img src="assets/vault-cover.png" alt="Vault cover">
-      </div>
-      <div class="stats">
-        <div><span>Builds</span><strong id="buildCount">0</strong></div>
-        <div><span>Average 3PT%</span><strong id="avg3pt">0%</strong></div>
-        <div><span>Total Wins</span><strong id="totalWins">0</strong></div>
-        <div><span>Total Losses</span><strong id="totalLosses">0</strong></div>
-      </div>
-      <h3>Recent Builds</h3>
-      <div id="recentBuilds" class="grid"></div>
-    </section>
-
-    <section id="buildsPage" class="page">
-      <div class="section-head">
-        <h3>My Build Binder</h3>
-        <button id="addBuild">+ Add Build</button>
-      </div>
-      <div id="buildGrid" class="grid"></div>
-    </section>
-
-    <section id="jumpshotsPage" class="page placeholder"><h3>Jump Shot Lab</h3><p>Your saved jump shots will appear here.</p></section>
-    <section id="animationsPage" class="page placeholder"><h3>Animation Lab</h3><p>Animations will be added next.</p></section>
-    <section id="wherePage" class="page placeholder"><h3>Where We Met</h3><p>Teammate tracking will be added next.</p></section>
-    <section id="crewPage" class="page placeholder"><h3>My Crew</h3><p>Crew tracking will be added next.</p></section>
-  </main>
-</div>
-
-<dialog id="buildDialog">
-<form id="buildForm">
-  <div class="modal-head">
-    <div><div class="small">BUILD EDITOR</div><h3 id="dialogTitle">Add Build</h3></div>
-    <button type="button" id="closeBtn" class="close">✕</button>
-  </div>
-  <input type="hidden" id="buildId">
-
-  <h4>Build Information</h4>
-  <div class="form-grid">
-    <label>Build Name<input id="name" required></label>
-    <label>Position<input id="position"></label>
-    <label>Height<input id="height"></label>
-    <label>Weight<input id="weight"></label>
-    <label>Wingspan<input id="wingspan"></label>
-    <label>Archetype<input id="archetype"></label>
-    <label>Version<input id="version" value="1.0"></label>
-    <label>Cap Breakers Used<input id="caps" type="number" min="0" value="0"></label>
-  </div>
-
-  <h4>Jump Shot</h4>
-  <div class="form-grid">
-    <label>Base<input id="base"></label>
-    <label>Release 1<input id="release1"></label>
-    <label>Release 2<input id="release2"></label>
-    <label>Blend<input id="blend"></label>
-  </div>
-
-  <h4>Build Stats</h4>
-  <div class="form-grid">
-    <label>FG %<input id="fg" type="number" step="0.1" min="0" max="100"></label>
-    <label>3PT %<input id="three" type="number" step="0.1" min="0" max="100"></label>
-    <label>FT %<input id="ft" type="number" step="0.1" min="0" max="100"></label>
-    <label>PPG<input id="ppg" type="number" step="0.1" min="0"></label>
-    <label>APG<input id="apg" type="number" step="0.1" min="0"></label>
-    <label>RPG<input id="rpg" type="number" step="0.1" min="0"></label>
-    <label>SPG<input id="spg" type="number" step="0.1" min="0"></label>
-    <label>BPG<input id="bpg" type="number" step="0.1" min="0"></label>
-    <label>Wins<input id="wins" type="number" min="0"></label>
-    <label>Losses<input id="losses" type="number" min="0"></label>
-    <label>Best Game<input id="bestGame" placeholder="33 points, 8 rebounds..."></label>
-    <label>Build Rating<input id="rating" type="number" min="1" max="10" step="0.1"></label>
-  </div>
-
-  <label>Notes<textarea id="notes" rows="4"></textarea></label>
-  <label>Build Screenshot<input id="imageInput" type="file" accept="image/*"></label>
-  <img id="preview" class="preview hidden" alt="Preview">
-
-  <div class="actions">
-    <button type="button" id="cancelBtn" class="secondary">Cancel</button>
-    <button type="submit">Save Build</button>
-  </div>
-</form>
-</dialog>
-
-<dialog id="detailDialog"><div id="detail"></div></dialog>
-<script src="app.js"></script>
-</body>
-</html>
+Data saves in the browser on that computer.

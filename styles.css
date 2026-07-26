@@ -1,16 +1,20 @@
-SVC1717 2K26 Season Vault v1
 
-Open index.html to start.
-
-Working now:
-- Cover with official slogan
-- Home dashboard
-- Add, edit, view, and delete builds
-- One screenshot per build
-- Jump shot information
-- Cap breaker count and version
-- Separate stats for every build:
-  FG%, 3PT%, FT%, PPG, APG, RPG, SPG, BPG,
-  wins, losses, win percentage, best game, and rating
-
-Data saves in the browser on that computer.
+:root{--bg:#08060e;--panel:#151020;--panel2:#211630;--pink:#ff2aa8;--purple:#864cff;--text:#fff;--muted:#b8adc8;--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#32134f,#08060e 38%);color:var(--text);font-family:Arial,sans-serif}
+button{cursor:pointer;border:0;border-radius:12px;padding:12px 17px;background:linear-gradient(135deg,var(--pink),var(--purple));color:white;font-weight:900}
+.hidden{display:none!important}.small{font-size:.75rem;letter-spacing:.18em;color:#ff82d0;font-weight:900}
+.cover{min-height:100vh;display:grid;place-items:center;padding:30px;background:linear-gradient(90deg,rgba(5,3,10,.95),rgba(5,3,10,.3)),url('assets/vault-cover.png') center/cover}
+.cover-card{max-width:580px;padding:45px;background:rgba(8,6,14,.78);border:1px solid var(--line);border-radius:26px;box-shadow:0 20px 60px #0008}
+.cover h1{font-size:clamp(3rem,7vw,6rem);line-height:.9;margin:12px 0}.cover p{font-size:1.45rem;font-style:italic}.tag{margin-top:22px;font-size:.78rem;letter-spacing:.12em}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}aside{padding:24px 16px;background:#090711ee;border-right:1px solid var(--line)}
+aside h2{margin:0 0 22px}.nav{display:block;width:100%;text-align:left;background:transparent;margin:4px 0;color:#d9cce8}.nav.active,.nav:hover{background:linear-gradient(90deg,#ff2aa833,#864cff33)}
+main{padding:28px 34px}header,.section-head,.modal-head{display:flex;justify-content:space-between;align-items:center}header{margin-bottom:24px}header h2{margin:4px 0}
+.page{display:none}.page.active{display:block}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;padding:28px;border-radius:22px;background:linear-gradient(135deg,#ff2aa820,#864cff20);border:1px solid var(--line)}
+.hero h3{font-size:clamp(2rem,4vw,4rem);line-height:1;margin:8px 0}.hero p{color:var(--muted);line-height:1.6}.hero img{width:100%;height:290px;object-fit:cover;border-radius:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:22px 0}.stats div{background:var(--panel);padding:20px;border-radius:17px;border:1px solid var(--line)}.stats span{display:block;color:var(--muted)}.stats strong{display:block;font-size:2rem;margin-top:7px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(var(--panel2),var(--panel));border:1px solid var(--line);border-radius:19px;overflow:hidden}.card img,.img-placeholder{width:100%;height:190px;object-fit:cover;background:#251534;display:grid;place-items:center}.card-body{padding:17px}.card h4{margin:0 0 7px}.meta{color:var(--muted);line-height:1.5}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.mini-stats div{background:#0b0811;padding:9px;border-radius:10px;text-align:center}.mini-stats span{display:block;color:var(--muted);font-size:.72rem}.mini-stats strong{font-size:.95rem}.card-actions{display:flex;gap:8px;margin-top:14px}.card-actions button{padding:8px 10px;background:#0e0a16;border:1px solid var(--line)}
+.placeholder{min-height:350px;place-content:center;text-align:center;color:var(--muted)}.placeholder.active{display:grid}
+dialog{width:min(900px,94vw);border:1px solid var(--line);border-radius:20px;background:#110d19;color:white;padding:0}dialog::backdrop{background:#000b}dialog form,#detail{padding:24px}.close,.secondary{background:transparent;border:1px solid var(--line)}
+.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}label{display:flex;flex-direction:column;gap:7px;color:#e2d5ee;font-weight:700;margin-top:11px}input,textarea{background:#09070d;color:white;border:1px solid var(--line);border-radius:9px;padding:11px}.preview{width:100%;max-height:300px;object-fit:contain;margin-top:12px}.actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.detail-item{background:#0b0811;padding:12px;border-radius:10px}.detail-item span{display:block;color:var(--muted);font-size:.75rem}.detail-image{width:100%;max-height:360px;object-fit:contain;border-radius:14px;background:#08060d}
+@media(max-width:900px){.app{grid-template-columns:85px 1fr}.nav{font-size:0;text-align:center}.nav::first-letter{font-size:1.2rem}.grid{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.app{display:block}aside{display:flex;overflow:auto}.nav{font-size:.8rem;min-width:max-content}.hero{grid-template-columns:1fr}.stats,.grid,.form-grid,.detail-grid{grid-template-columns:1fr}main{padding:18px}}
