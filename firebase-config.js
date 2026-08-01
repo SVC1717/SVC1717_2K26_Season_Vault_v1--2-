@@ -1,4 +1,3 @@
-// Firebase Console → Project settings → Your apps → Web app
 window.VAULT_FIREBASE_CONFIG = {
   apiKey: "",
   authDomain: "jackies-2k-vault.firebaseapp.com",
@@ -9,5 +8,4 @@ window.VAULT_FIREBASE_CONFIG = {
   measurementId: ""
 };
 
-// Put Jackie's exact Firebase sign-in email here.
 window.VAULT_ADMIN_EMAIL = "CHANGE-TO-JACKIES-EMAIL@example.com";

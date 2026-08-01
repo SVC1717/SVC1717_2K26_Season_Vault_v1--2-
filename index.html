@@ -1,218 +1,158 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#8b2cf5" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1a0a2a">
   <title>Jackie's 2K Vault</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <button class="brand" data-page="home">
-      <span class="ball">🏀</span>
-      <span><b>Jackie's 2K Vault</b><small>2K27 Season</small></span>
+    <button class="brand" data-page="cover">
+      <span class="brand-icon">🏀</span>
+      <span><b>Jackie's 2K Vault</b><small>Digital Binder • 2K27</small></span>
     </button>
-    <div class="top-actions">
-      <button id="seasonButton" class="ghost">2K26 Archive</button>
-      <button id="authButton" class="primary">Sign In</button>
-    </div>
+    <nav class="topnav">
+      <button data-page="cover">Cover</button>
+      <button data-page="builds">My Builds</button>
+      <button data-page="community">Community</button>
+      <button data-page="library">Jump Shots</button>
+      <button data-page="story">My Story</button>
+      <button id="authButton" class="sign-in">Sign In</button>
+    </nav>
   </header>
 
-  <button id="menuButton" class="menu">☰</button>
-
-  <aside id="sidebar" class="sidebar">
-    <nav>
-      <button class="nav active" data-page="home">🏠 Home</button>
-      <button class="nav" data-page="my-builds">📖 My Builds</button>
-      <button class="nav" data-page="community">🌎 Community Builds</button>
-      <button class="nav" data-page="submit">➕ Submit a Build</button>
-      <button class="nav" data-page="jumpshots">🎯 Jump Shot Lab</button>
-      <button class="nav" data-page="animations">🎮 Animation Lab</button>
-      <button class="nav" data-page="wizard">🧙 Build Wizard</button>
-      <button class="nav" data-page="compare">⚖️ Compare Builds</button>
-      <button class="nav" data-page="players">👥 Approved Players</button>
-      <button class="nav" data-page="challenges">⚔️ Squad Challenges</button>
-      <button class="nav" data-page="story">💜 My Story</button>
-      <button class="nav admin-only hidden" data-page="admin">👑 Admin</button>
-    </nav>
-    <div class="side-footer">
-      <span id="connectionBadge" class="badge local">Local mode</span>
-      <small>Every build. Every badge. Every bucket.</small>
-    </div>
-  </aside>
-
-  <main class="main">
-    <section id="page-home" class="page active">
-      <div class="hero">
-        <div>
-          <span class="eyebrow">SVC1717 • 2K27</span>
-          <h1>I Compete<br>Because I Belong.</h1>
-          <p>Jackie's binder-style NBA 2K community for builds, jump shots, animations, cap breakers, player lists, and squad challenges.</p>
-          <div class="hero-actions">
-            <button class="primary" data-page="my-builds">View My Builds</button>
-            <button class="secondary" data-page="submit">Submit Your Build</button>
+  <main>
+    <section id="page-cover" class="page active">
+      <div class="binder-shell cover-shell">
+        <div class="rings" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <article class="binder-page cover-page">
+          <div class="cover-glow"></div>
+          <div class="cover-content">
+            <span class="season-label">SVC1717 • 2K27 SEASON</span>
+            <div class="silhouette">⛹🏽‍♀️</div>
+            <h1>JACKIE'S<br>2K VAULT</h1>
+            <p class="motto">I COMPETE BECAUSE I BELONG.</p>
+            <p class="submotto">NOT JUST A MAN'S WORLD</p>
+            <div class="cover-actions">
+              <button class="primary" data-page="builds">OPEN THE BINDER</button>
+              <button class="secondary" data-page="community">COMMUNITY BUILDS</button>
+            </div>
           </div>
-        </div>
-        <div class="cover-card">
-          <div class="silhouette">⛹🏽‍♀️</div>
-          <span>JACKIE'S</span>
-          <b>2K VAULT</b>
-          <small>NOT JUST A MAN'S WORLD</small>
-        </div>
+          <div class="cover-stamp">BUILT FOR THE REC</div>
+        </article>
       </div>
 
-      <div class="stats">
-        <article><span>Current Season</span><b>2K27</b><small>Launch ready</small></article>
-        <article><span>Vault Status</span><b>LIVE</b><small>GitHub Pages</small></article>
-        <article><span>Approved Builds</span><b id="approvedCount">0</b><small>Community + Jackie</small></article>
-        <article><span>Pending Review</span><b id="pendingCount">0</b><small>Admin queue</small></article>
-      </div>
-
-      <div class="heading">
-        <div><span class="eyebrow">Featured</span><h2>Jackie's Certified Builds</h2></div>
-        <button class="link" data-page="my-builds">See all →</button>
-      </div>
-      <div id="featuredGrid" class="grid"></div>
+      <section class="quick-stats">
+        <article><span>Current Season</span><b>2K27</b></article>
+        <article><span>Certified Builds</span><b id="certifiedCount">3</b></article>
+        <article><span>Pending Approval</span><b id="pendingCount">0</b></article>
+        <article><span>Vault Status</span><b>LIVE</b></article>
+      </section>
     </section>
 
-    <section id="page-my-builds" class="page">
-      <div class="page-title"><div><span class="eyebrow">Jackie's Collection</span><h1>My Builds</h1></div></div>
-      <div class="filters">
-        <input id="mySearch" type="search" placeholder="Search builds..." />
-        <select id="myPosition"><option value="">All positions</option><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option></select>
-        <select id="mySeason"><option value="">All seasons</option><option>2K27</option><option>2K26</option></select>
+    <section id="page-builds" class="page">
+      <div class="section-title">
+        <div><span>JACKIE'S DIGITAL BINDER</span><h2>My Builds</h2></div>
+        <div class="filters">
+          <select id="seasonFilter"><option value="">All Seasons</option><option>2K27</option><option>2K26</option></select>
+          <select id="positionFilter"><option value="">All Positions</option><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option></select>
+        </div>
       </div>
-      <div id="myGrid" class="grid"></div>
+      <div id="buildBinder" class="build-binder"></div>
     </section>
 
     <section id="page-community" class="page">
-      <div class="page-title"><div><span class="eyebrow">Approved by Jackie</span><h1>Community Builds</h1></div><button class="primary" data-page="submit">Submit Build</button></div>
-      <div class="filters two">
-        <input id="communitySearch" type="search" placeholder="Search player, build, height..." />
-        <select id="communityPosition"><option value="">All positions</option><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option></select>
+      <div class="section-title">
+        <div><span>APPROVED BY JACKIE</span><h2>Community Builds</h2></div>
+        <button class="primary" data-page="submit">SUBMIT A BUILD</button>
       </div>
-      <div id="communityGrid" class="grid"></div>
+      <div id="communityGrid" class="community-grid"></div>
     </section>
 
     <section id="page-submit" class="page">
-      <div class="page-title"><div><span class="eyebrow">Share with the Vault</span><h1>Submit a Build</h1></div></div>
-      <form id="buildForm" class="panel form">
-        <div class="form-grid">
-          <label>Build name<input name="name" required placeholder="Two-Way Inside-Out Scorer"></label>
-          <label>Gamertag<input name="owner" required placeholder="Your gamertag"></label>
-          <label>Season<select name="season"><option>2K27</option><option>2K26</option></select></label>
-          <label>Position<select name="position"><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option></select></label>
-          <label>Height<input name="height" placeholder="6'8&quot;"></label>
-          <label>Weight<input name="weight" placeholder="225 lbs"></label>
-          <label>Archetype<input name="archetype" placeholder="Two-Way..."></label>
-          <label>Mode<select name="playstyle"><option>Rec</option><option>Park</option><option>Pro-Am</option><option>All Modes</option></select></label>
-          <label>3PT<input name="three" type="number" min="25" max="99" placeholder="90"></label>
-          <label>Driving dunk<input name="dunk" type="number" min="25" max="99" placeholder="93"></label>
-          <label>Standing dunk<input name="standing" type="number" min="25" max="99" placeholder="90"></label>
-          <label>Pass accuracy<input name="pass" type="number" min="25" max="99" placeholder="82"></label>
-        </div>
-        <label>Jump shot<textarea name="jumpshot" placeholder="Base / Release 1 / Release 2 / Speed / Blend"></textarea></label>
-        <label>Strengths<textarea name="strengths"></textarea></label>
-        <label>Weaknesses / changes<textarea name="weaknesses"></textarea></label>
-        <label>Screenshot URL<input name="image" type="url" placeholder="Optional until Firebase Storage is enabled"></label>
-        <div class="form-actions"><button type="reset" class="secondary">Clear</button><button class="primary">Send for Approval</button></div>
-      </form>
-    </section>
-
-    <section id="page-jumpshots" class="page">
-      <div class="page-title"><div><span class="eyebrow">Green Window Library</span><h1>Jump Shot Lab</h1></div></div>
-      <div id="jumpshotGrid" class="library-grid"></div>
-    </section>
-
-    <section id="page-animations" class="page">
-      <div class="page-title"><div><span class="eyebrow">Signature Packages</span><h1>Animation Lab</h1></div></div>
-      <div id="animationGrid" class="library-grid"></div>
-    </section>
-
-    <section id="page-wizard" class="page">
-      <div class="page-title"><div><span class="eyebrow">Find Your Match</span><h1>Build Wizard</h1></div></div>
-      <form id="wizardForm" class="panel form">
-        <div class="form-grid">
-          <label>Main mode<select name="mode"><option>Rec</option><option>Park</option><option>All Modes</option></select></label>
-          <label>Role<select name="role"><option value="guard">Guard</option><option value="wing">Wing</option><option value="big">Big</option></select></label>
-          <label>Priority<select name="priority"><option value="shooting">Shooting</option><option value="slashing">Slashing</option><option value="defense">Defense</option><option value="balanced">Balanced</option></select></label>
-          <label>Passing<select name="passing"><option value="high">82 or higher</option><option value="normal">Standard</option></select></label>
-        </div>
-        <button class="primary">Recommend a Build</button>
-      </form>
-      <div id="wizardResult" class="panel hidden"></div>
-    </section>
-
-    <section id="page-compare" class="page">
-      <div class="page-title"><div><span class="eyebrow">Side by Side</span><h1>Build Comparison</h1></div></div>
-      <div class="compare-bar">
-        <select id="compareA"></select><span>VS</span><select id="compareB"></select><button id="compareButton" class="primary">Compare</button>
+      <div class="binder-shell form-shell">
+        <div class="rings"><span></span><span></span><span></span><span></span><span></span></div>
+        <article class="binder-page form-page">
+          <div class="page-tab">SUBMIT</div>
+          <span class="eyebrow">COMMUNITY BUILD FORM</span>
+          <h2>Send Your Build to Jackie</h2>
+          <form id="buildForm">
+            <div class="form-grid">
+              <label>Build Name<input name="name" required></label>
+              <label>Gamertag<input name="owner" required></label>
+              <label>Season<select name="season"><option>2K27</option><option>2K26</option></select></label>
+              <label>Position<select name="position"><option>PG</option><option>SG</option><option>SF</option><option>PF</option><option>C</option></select></label>
+              <label>Height<input name="height" placeholder="6'8&quot;"></label>
+              <label>Weight<input name="weight" placeholder="225 lbs"></label>
+              <label>Archetype<input name="archetype"></label>
+              <label>Mode<select name="mode"><option>Rec</option><option>Park</option><option>Pro-Am</option><option>All Modes</option></select></label>
+              <label>3PT<input name="three" type="number" min="25" max="99"></label>
+              <label>Driving Dunk<input name="dunk" type="number" min="25" max="99"></label>
+              <label>Standing Dunk<input name="standing" type="number" min="25" max="99"></label>
+              <label>Pass Accuracy<input name="pass" type="number" min="25" max="99"></label>
+            </div>
+            <label>Jump Shot<textarea name="jumpshot" placeholder="Base / Release 1 / Release 2 / Speed / Blend"></textarea></label>
+            <label>Strengths<textarea name="strengths"></textarea></label>
+            <label>Weaknesses / What You Would Change<textarea name="weaknesses"></textarea></label>
+            <label>Screenshot URL<input name="image" type="url" placeholder="Optional until Firebase Storage is enabled"></label>
+            <button class="primary" type="submit">SEND FOR APPROVAL</button>
+          </form>
+        </article>
       </div>
-      <div id="comparisonGrid" class="comparison-grid"></div>
     </section>
 
-    <section id="page-players" class="page">
-      <div class="page-title"><div><span class="eyebrow">Jackie's Approved List</span><h1>Players</h1></div></div>
-      <div id="playersGrid" class="player-columns"></div>
-    </section>
-
-    <section id="page-challenges" class="page">
-      <div class="page-title"><div><span class="eyebrow">Bring Your Best Squad</span><h1>Squad Challenges</h1></div></div>
-      <form id="challengeForm" class="panel form">
-        <div class="form-grid">
-          <label>Your squad<input name="challenger" required></label>
-          <label>Opponent<input name="opponent" required></label>
-          <label>Date and time<input name="date" type="datetime-local" required></label>
-          <label>Mode<select name="mode"><option>Rec</option><option>Pro-Am</option><option>Park</option></select></label>
-        </div>
-        <button class="primary">Send Challenge</button>
-      </form>
-      <div id="challengeList" class="stack"></div>
+    <section id="page-library" class="page">
+      <div class="section-title"><div><span>SHOT RECIPES</span><h2>Jump Shot Library</h2></div></div>
+      <div id="jumpShotCards" class="library-grid"></div>
+      <div class="section-title second"><div><span>SIGNATURE PACKAGES</span><h2>Animation Library</h2></div></div>
+      <div id="animationCards" class="library-grid"></div>
     </section>
 
     <section id="page-story" class="page">
-      <div class="story">
-        <div class="story-card"><span>17</span><b>SVC</b><small>NEW YORK</small></div>
-        <article>
-          <span class="eyebrow">Why the Vault Exists</span>
-          <h1>Jackie's Story</h1>
-          <p>I started playing 2K after my mother's stroke while balancing work, caregiving, and family responsibilities. Basketball became a place to compete, learn, and connect.</p>
-          <p>The Vault keeps every build, lesson, jump shot, cap-breaker idea, strength, weakness, and change I wish I had made. It also gives the community a place to share without trash talk or bashing people.</p>
-          <blockquote>“Not just a man's world. I compete because I belong.”</blockquote>
+      <div class="binder-shell story-shell">
+        <div class="rings"><span></span><span></span><span></span><span></span><span></span></div>
+        <article class="binder-page story-page">
+          <div class="page-tab">MY STORY</div>
+          <div class="story-photo">
+            <span>17</span><b>SVC</b><small>NEW YORK</small>
+          </div>
+          <div class="story-copy">
+            <span class="eyebrow">WHY THE VAULT EXISTS</span>
+            <h2>Jackie's Story</h2>
+            <p>I started playing 2K after my mother's stroke while balancing work, caregiving, and family responsibilities. Basketball became a place to compete, learn, and connect.</p>
+            <p>This Vault keeps every build, every lesson, every jumper, every cap-breaker idea, and every change I wish I had made. It also gives the community a place to share without trash talk or bashing people.</p>
+            <blockquote>“Not just a man's world. I compete because I belong.”</blockquote>
+          </div>
         </article>
       </div>
     </section>
 
     <section id="page-admin" class="page">
-      <div class="page-title"><div><span class="eyebrow">Jackie Only</span><h1>Admin Dashboard</h1></div></div>
-      <div class="stats">
-        <article><span>Pending Builds</span><b id="adminPending">0</b></article>
-        <article><span>Approved Builds</span><b id="adminApproved">0</b></article>
-        <article><span>Challenges</span><b id="adminChallenges">0</b></article>
-        <article><span>Mode</span><b id="adminMode">LOCAL</b></article>
-      </div>
-      <div class="heading"><div><span class="eyebrow">Review Queue</span><h2>Waiting for Approval</h2></div></div>
-      <div id="adminQueue" class="stack"></div>
+      <div class="section-title"><div><span>JACKIE ONLY</span><h2>Admin Approval Queue</h2></div></div>
+      <div id="adminQueue" class="admin-list"></div>
     </section>
   </main>
 
   <dialog id="authDialog">
     <form id="authForm" method="dialog" class="dialog-card">
-      <button id="closeAuth" type="button" class="close">×</button>
-      <span class="eyebrow">Vault Account</span>
+      <button type="button" id="closeAuth" class="close">×</button>
+      <span class="eyebrow">VAULT ACCOUNT</span>
       <h2 id="authTitle">Sign In</h2>
       <label>Email<input id="authEmail" type="email" required></label>
       <label>Password<input id="authPassword" type="password" minlength="6" required></label>
-      <button id="authSubmit" class="primary">Sign In</button>
-      <button id="authSwitch" type="button" class="link">Need an account? Create one</button>
+      <button class="primary" id="authSubmit">SIGN IN</button>
+      <button type="button" id="authSwitch" class="text-button">Create an account</button>
       <p id="authMessage"></p>
     </form>
   </dialog>
 
   <dialog id="buildDialog">
     <article class="dialog-card wide">
-      <button id="closeBuild" type="button" class="close">×</button>
+      <button type="button" id="closeBuild" class="close">×</button>
       <div id="buildDetail"></div>
     </article>
   </dialog>

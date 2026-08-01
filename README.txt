@@ -1,6 +1,21 @@
-JACKIE'S 2K VAULT — FULL 2K27 APP
+JACKIE'S 2K VAULT — 2K27 BINDER DESIGN
 
-UPLOAD THESE FILES TO GITHUB
+This version keeps the 2K26 binder look:
+- Dark pink/purple cover
+- Basketball silhouette
+- Metal binder rings
+- One build per two-page spread
+- Large build image area
+- Attributes, jump shot, strengths, weaknesses, and Rec notes
+- 2K27 current season with 2K26 archive filter
+- Community build submissions
+- Admin approval queue
+- Jump Shot and Animation libraries
+- My Story page
+- Firebase-ready sign-in
+
+UPLOAD TO GITHUB
+Replace:
 - index.html
 - styles.css
 - app.js
@@ -8,18 +23,6 @@ UPLOAD THESE FILES TO GITHUB
 - firestore.rules
 - README.txt
 
-FIREBASE CONNECTION
-1. Open Firebase Console.
-2. Project settings → Your apps → Web app.
-3. Copy the firebaseConfig values.
-4. Paste them into firebase-config.js.
-5. Change VAULT_ADMIN_EMAIL to Jackie's exact sign-in email.
-
-FIRESTORE RULES
-1. Open Firestore Database → Rules.
-2. Replace the rules with firestore.rules.
-3. Change the admin email inside the rules.
-4. Click Publish.
-
-The app works in local-browser mode before Firebase is connected.
-Image uploads use a URL until Firebase Storage is enabled.
+FIREBASE
+Paste your Firebase web configuration into firebase-config.js.
+Replace the admin email in firebase-config.js and firestore.rules.

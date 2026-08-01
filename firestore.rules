@@ -6,17 +6,9 @@ service cloud.firestore {
       return signedIn() &&
         request.auth.token.email == "CHANGE-TO-JACKIES-EMAIL@example.com";
     }
-
     match /builds/{buildId} {
       allow read: if resource.data.status == "approved" || isAdmin();
-      allow create: if signedIn()
-        && request.resource.data.status == "pending"
-        && request.resource.data.submittedBy == request.auth.token.email;
-      allow update, delete: if isAdmin();
-    }
-
-    match /challenges/{challengeId} {
-      allow create, read: if signedIn();
+      allow create: if signedIn();
       allow update, delete: if isAdmin();
     }
   }
